@@ -579,6 +579,71 @@
       width: 100%;
       text-align: center;
     }
+
+    .main_footer p {
+      position: absolute;
+      top: 50%;          /* I-adjust ito (e.g., 10% or 20%) depende sa "uka" ng image mo */
+      left: 50%;
+      transform: translateX(-50%);
+      
+      width: 100%;
+      text-align: center;
+      color: #FFFFFF;    /* Puti para sa blue background */
+      font-size: 20px;   /* Lakihan ang size para sa H1 */
+      z-index: 10;  
+    }
+
+    /* Container para sa dalawang buttons sa footer */
+    .footer_buttons {
+      position: absolute;
+      top: 62%; /* Nilagay sa ilalim ng <p> tag */
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px; /* Space sa pagitan ng dalawang buttons */
+      z-index: 10;
+    }
+
+    .footer_buttons a {
+      padding: 30px 30px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    /* Style para sa unang button (Start Adopting) */
+    .footer_buttons a:first-child {
+      background-color: transparent; /* Orange katulad ng sa taas */
+      color: #ffffff;
+      border: 2px solid #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Style para sa pangalawang button (Make a Donation) */
+    .footer_buttons a:last-child {
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+
+    /* Hover Effects */
+    .footer_buttons a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    .footer_buttons a:first-child:hover {
+      background-color: #ffffff;
+      color: #02407D; 
+    }
+
+    .footer_buttons a:last-child:hover {
+      background-color: #fff;
+      color: #02407D; /* Magiging blue ang text para mabasa sa puting background */
+    }
   
 
     /* Responsive */
@@ -590,6 +655,21 @@
       nav .account button {
         padding: 6px 12px;
         font-size: 14px;
+      }
+
+      .footer_buttons {
+        flex-direction: column; /* Pag-stack-in ang buttons sa mobile */
+        top: 55%;
+        gap: 10px;
+      }
+      .main_footer h1 {
+        font-size: 24px;
+        top: 15%;
+      }
+      .main_footer p {
+        font-size: 14px;
+        top: 35%;
+        padding: 0 20px;
       }
     }
   </style>
@@ -758,10 +838,13 @@
     <img src="../../images/footer_rect.png" alt="Footer Background">
     
     <h1>Ready to Make a Difference?</h1>
-    
-    <div class="footer_text">
-       © 2024 PAWSsion. All rights reserved.
+    <p>Join our community and help give these animals a second chance at happiness</p>
+    <div class="footer_buttons">
+      <a>Start Adopting</a>
+      <a>Make a Donation</a>
     </div>
+    <div class="footer_text">
+      &copy; 2025 PAWSsion. All rights reserved.
   </div>
 </body>
 </html>
