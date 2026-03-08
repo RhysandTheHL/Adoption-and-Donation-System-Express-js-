@@ -14,6 +14,7 @@
       font-family: 'Inter', sans-serif;
       font-size: 18px;
       text-align: center;
+      overflow-x: hidden;
     }
 
     /* Navigation Settings */
@@ -141,6 +142,118 @@
       color: #000000;
     }
 
+ /* Donate Section Layout */
+ #donate {
+      display: flex;
+      flex-direction: row-reverse;
+      /* Gamitin ang flex-start para dikit sa taas ng container */
+      align-items: flex-start; 
+      justify-content: space-between;
+      /* 150px padding-top para hindi matakpan ng fixed Nav */
+      padding: 150px 8% 100px 8%; 
+      min-height: 80vh;
+      background-color: #FFFFFF;
+    }
+
+   /* Container para sa H1 at P */
+  .donate-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Pagpatungin ang H1 at P */
+    align-items: flex-end;   /* I-align lahat sa kanan */
+    text-align: right;
+  }
+
+  #donate h1 {
+    font-size: 50px;
+    font-weight: 900;
+    color: #000000;
+    margin: 0;
+    line-height: 1.1;
+
+    margin-top: 40px;
+    margin-left: 30px;
+  }
+
+  #donate p {
+    font-size: 25px;
+    color: #333;
+    margin-top: 50px; /* Space sa pagitan ng H1 at P */
+    max-width: 450px; /* Para hindi masyadong mahaba ang linya ng text */
+    line-height: 1.6;
+    margin-left: 80px;
+    text-align: center;
+  }
+
+  /* Siguraduhin na ang Image Grid ay hindi masyadong dikit */
+  .donate_img {
+    flex: 1.2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 90px; /* Binawasan ko para sakto sa view */
+    padding-right: 80px;
+  }
+
+    .donate_img img {
+      width: 90%;
+      height: auto;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    /* Staggered Effect (Katulad ng aso na may headphones) */
+    /* Ibinaba ang 1st at 3rd image */
+    .donate_img img:nth-child(odd) {
+      transform: translateY(50px);
+    }
+
+    /* Responsive for Mobile */
+    @media (max-width: 900px) {
+      #donate {
+        flex-direction: column; /* Stack vertically sa mobile */
+        text-align: center;
+      }
+      #donate h1 {
+        text-align: center;
+        order: 1; /* Text muna sa taas */
+      }
+      .donate_img {
+        order: 2; /* Images sa baba */
+        padding-right: 0;
+        margin-top: 60px;
+      }
+    }
+
+    .donate_btn {
+      display: inline-flex; /* para icon + text side by side */
+      align-items: center;
+      gap: 25px; /* space sa pagitan ng paw at text */
+      background-color: #ffffff; /* button bg color */
+      color: #02407D;
+      padding: 15px 25px;
+      border: #02407D solid 1px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 55px; /* space mula sa <p> */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      margin-right: 90px;
+    }
+
+   .donate_btn:hover {
+      background-color: #ffffff;
+      color: #02407D;
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .donate_btn a {
+      color: inherit; /* matches parent color */
+    }
+
    </style>
 </head>
 <body>
@@ -168,9 +281,28 @@
 
   <!-- Sections --> 
   <section id="donate">
+    <div class="donate-text">
+      <h1>DONATE ONLINE</h1>
+      <p>
+        Help us help more animals.<br>
+        The shelter and all our programs and campaigns are funded solely by donations.
+        You can donate any amount via online.
+      </p>
+      <div class="donate_btn">
+        <img src="../../images/donate_logo.png" class="donate_logo">
+        <a>Donate Now</a>
+      </div>
+    </div>
     
+  
+    <div class="donate_img">
+      <img src="../../images/dog_donate.png">
+      <img src="../../images/dog_donate.png">
+      <img src="../../images/dog_donate.png">
+      <img src="../../images/dog_donate.png">
+    </div>
   </section>
-
+  
   <section id="companion">
    
   </section>
