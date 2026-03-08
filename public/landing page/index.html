@@ -122,11 +122,7 @@
     /* Sections */
     section {
       min-height: 100vh;  
-      display: absolute;
-      flex-direction: column; 
-      justify-content: center;
-      padding-top: 10%;
-
+      padding-top: 5%;
     }
 
     section h1 {
@@ -265,7 +261,8 @@
 
     width: 100%;
     min-height: 100vh;          /* full viewport height minimum */
-    padding: 5% 2%;             /* responsive padding */
+    padding: 5% 2%;     
+            /* responsive padding */
     box-sizing: border-box;
     overflow: hidden;          /* allow full image to be visible */
     position: relative;      
@@ -363,7 +360,66 @@
       gap: 12px;             /* space between logo and text */
     }
 
-    #home { background: #FFFFFF; }
+    #companion { 
+      background: #FFFFFF;
+      color: #000000; 
+      font-family: 'Inter', sans-serif;
+
+      display: flex;
+      justify-content: center;   /* center horizontally */
+      align-items: center;   
+      align-items: flex-start; /* align items to top instead of center */
+      gap: 120px;    
+      padding: 5%;
+      min-height: 100vh;
+      overflow: hidden;          /* allow full image to be visible */
+      position: relative;   
+    }
+
+    /* Companion circle */
+    #companion .ellipse1{
+      width: 100px;
+      height: 100px;
+      background: #D8901D;      /* orange circle */
+      border-radius: 50%;       /* makes it circle */
+      display: flex;
+      justify-content: center;  /* center horizontally */
+      align-items: center;      /* center vertically */
+      margin: 20px auto 5px auto; /* top right bottom left */
+    }
+
+    /* White paw inside circle */
+    #companion .white_paw{
+      width: 50px;
+      height: 50px;
+    }
+
+    #companion .companion-item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px; /* space between circle and number */
+    }
+
+    #companion .companion-number{
+      font-weight: 600;
+      font-size: 25px;
+      color: #000;
+    }
+
+    #companion .header{
+      position: absolute;
+      background-color: #02407D;
+      padding: 10px 15px;
+      margin-top: 25%;
+      margin-left: -82%;
+    }
+
+    #companion .header h1{
+      color: #fff;
+      font-size: 30px;
+    }
+
     #about { background: #e1793d; }
     #how { background: #8e44ad; }
 
@@ -403,7 +459,7 @@
       </div>
   </nav>
 
-  <!-- Sections -->
+  <!-- Sections --> 
   <section id="home">
     <h1>Find Your Perfect Companion</h1>
     <p>University Pet Adoption connects students and staff with loving <br> pets looking for their forever homes.</p>
@@ -466,8 +522,42 @@
     </div>
   </section>
 
-  <section id="home">
-    <p>Welcome to Donate Screen</p>
+  <section id="companion">
+    <div class="companion-item">
+      <div class="ellipse1">
+        <img src="../../images/white paw.png" class="white_paw">
+      </div>
+      <p class="companion-number">21</p>
+      <p style="font-size: 20px;">Pets Adopted</p>
+    </div>
+
+    <div class="companion-item">
+      <div class="ellipse1">
+        <img src="../../images/house.png" class="white_paw">
+      </div>
+      <p class="companion-number">21</p>
+      <p style="font-size: 20px;">Happy Families</p>
+    </div>
+    
+    <div class="companion-item">
+      <div class="ellipse1">
+        <img src="../../images/donation.png" class="white_paw">
+      </div>
+      <p class="companion-number">10,000</p>
+      <p style="font-size: 20px;">Donations</p>
+    </div>
+
+    <div class="companion-item">
+      <div class="ellipse1">
+        <img src="../../images/rating.png" class="white_paw">
+      </div>
+      <p class="companion-number">4.5</p>
+      <p style="font-size: 20px;">Average Ratings</p>
+    </div>
+
+    <div class="header">
+    <h1>COMPANIONS</h1>
+    </div>
   </section>
 
   <section id="about">
@@ -482,7 +572,7 @@
 
 <script>
   const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav ul li a");
+  const navLinks = document.querySelectorAll("nav ul li a");
 
 window.addEventListener("scroll", () => {
   let current = "";
@@ -491,6 +581,10 @@ window.addEventListener("scroll", () => {
     const sectionTop = section.offsetTop - 80;
     if (pageYOffset >= sectionTop) {
       current = section.getAttribute("id");
+
+      if(current === "companion"){
+        current = "home";
+      }
     }
   });
 
