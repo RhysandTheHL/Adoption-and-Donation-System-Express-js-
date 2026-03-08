@@ -121,7 +121,7 @@
 
     /* Sections */
     section {
-      height: 100vh;
+      min-height: 100vh;  
       display: absolute;
       flex-direction: column; 
       justify-content: center;
@@ -154,12 +154,12 @@
       padding: 12px 25px;
       border-radius: 50px;
       cursor: pointer;
-      font-weight: 300;
+      font-weight: 600;
       font-size: 20px;
       text-decoration: none;
       transition: all 0.3s ease;
       margin-top: 30px; /* space mula sa <p> */
-        margin-right: 35px;
+      margin-right: 35px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
@@ -191,7 +191,7 @@
       border: #02407D solid 1px;
       border-radius: 50px;
       cursor: pointer;
-      font-weight: 300;
+      font-weight: 600;
       font-size: 20px;
       text-decoration: none;
       transition: all 0.3s ease;
@@ -227,6 +227,22 @@
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position: 100px 200px, 100px 250px, 400px 400px, 190px 290px, 250px 300px, 200px 360px, 200px 450px, 80px 590px, 70px 550px, 120px 510px; /* x y coordinates */
     background-size: 30px 30px, 20px 20px, 60px 60px, 30px 30px, 20px 20px, 30px 30px, 40px 40px,  30px 30px, 20px 20px,  30px 30px; /* sizes ng bawat paw */
+  
+    width: 100%;
+    min-height: 100vh;          /* full viewport height minimum */
+    padding: 5% 2%;             /* responsive padding */
+    box-sizing: border-box;
+    overflow: hidden;          /* allow full image to be visible */
+    position: relative;      
+    }
+
+  /* Home dog image */
+    .home_dog {
+      width: auto;                /* maintain natural width */
+      max-width: 100%;            /* scale down if too wide */
+      max-height: 60vh;           /* never exceed 60% of viewport height */
+      height: auto;               /* maintain aspect ratio */
+      margin-top: 20px;
     }
 
     #donate { background: #efc94d; }
@@ -282,6 +298,10 @@
     <div class="donate">
       <img src="../../images/donate_logo.png" class="donate_logo">
       <a>Donate Now</a>
+    </div>
+    
+    <div>
+      <img src="../../images/home_dog.png" class="home_dog">
     </div>
   </section>
 
