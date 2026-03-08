@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PAWSsion</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     /* Reset and basic styles */
     * {margin: 0; padding: 0; box-sizing: border-box;}
@@ -122,19 +122,113 @@
     /* Sections */
     section {
       height: 100vh;
-      display: flex;
+      display: absolute;
+      flex-direction: column; 
       justify-content: center;
-      align-items: center;
-      padding-top: 70px; /* leave space for fixed nav */
+      padding-top: 10%;
+      
+    }
+
+    section h1 {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800; /* extra bold */
+      font-size: 50px;
+      color: #000000;
+      padding-bottom: 10px;
     }
 
     section p {
       margin: 0;
-      font-size: 24px;
+      font-size: 20px;
+      color: #000000;
+    }
+
+    /* Adopt button container */
+    .adopt {
+      display: inline-flex; /* para icon + text side by side */
+      align-items: center;
+      gap: 25px; /* space sa pagitan ng paw at text */
+      background-color: #FFA600; /* button bg color */
+      color: #000000;
+      padding: 12px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 300;
+      font-size: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 30px; /* space mula sa <p> */
+        margin-right: 35px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Adopt paw image inside button */
+    .adopt img.adopt_paw {
+      width: 30px;
+      height: 30px;
+    }
+
+    /* Hover effect */
+    .adopt:hover {
+      background-color: #FFA600;
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Make the <a> inside fill the text color */
+    .adopt a {
+      color: inherit; /* matches parent color */
+    }
+
+    .donate {
+      display: inline-flex; /* para icon + text side by side */
+      align-items: center;
+      gap: 25px; /* space sa pagitan ng paw at text */
+      background-color: #ffffff; /* button bg color */
+      color: #02407D;
+      padding: 15px 25px;
+      border: #02407D solid 1px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 300;
+      font-size: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 30px; /* space mula sa <p> */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+   .donate:hover {
+      background-color: #ffffff;
+      color: #02407D;
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .donate a {
+      color: inherit; /* matches parent color */
     }
 
     /* Sections Background Colors */
-    #home { background: #43b29d; }
+    #home { 
+      background: #FFFFFF; 
+      background-image: 
+    url('../../images/Paws.png'),
+    url('../../images/Paws.png'),
+    url('../../images/Paws.png'),
+    url('../../images/rotate_paw.png'),
+    url('../../images/rotate_paw.png'),
+    url('../../images/rotate_paw.png'),
+    url('../../images/Paws.png'),
+    url('../../images/Paws.png'),
+    url('../../images/Paws.png'),
+    url('../../images/Paws.png');
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 100px 200px, 100px 250px, 400px 400px, 190px 290px, 250px 300px, 200px 360px, 200px 450px, 80px 590px, 70px 550px, 120px 510px; /* x y coordinates */
+    background-size: 30px 30px, 20px 20px, 60px 60px, 30px 30px, 20px 20px, 30px 30px, 40px 40px,  30px 30px, 20px 20px,  30px 30px; /* sizes ng bawat paw */
+    }
+
     #donate { background: #efc94d; }
     #about { background: #e1793d; }
     #how { background: #8e44ad; }
@@ -177,7 +271,18 @@
 
   <!-- Sections -->
   <section id="home">
-    <p>Welcome to Home Screen</p>
+    <h1>Find Your Perfect Companion</h1>
+    <p>University Pet Adoption connects students and staff with loving <br> pets looking for their forever homes.</p>
+    
+    <div class="adopt">
+      <img src="../../images/adopt_paw.png" class="adopt_paw">
+      <a>Adopt a pet</a>
+    </div>
+
+    <div class="donate">
+      <img src="../../images/donate_logo.png" class="donate_logo">
+      <a>Donate Now</a>
+    </div>
   </section>
 
   <section id="donate">
