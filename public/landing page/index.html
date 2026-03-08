@@ -46,40 +46,51 @@
       flex: 1; /* take remaining space */
       display: flex;
       justify-content: center;
-      margin-left: -90px;
+      margin-left: -50px;
     }
 
     nav .account {
       display: flex;
       align-items: center;
-      gap: 8px; /* space between icon and button */
-    }
-
-    nav .account img.account-icon {
-      width: 24px;   /* adjust size as needed */
-      height: 24px;
-      background: #396BC9; /* your vector background */
-      border-radius: 50%;   /* make it circular if desired */
-    }
-
-    /* Account button on the right */
-    nav .account button {
+      gap: 0px;
       background-color: hsl(219, 100%, 74%,29%);
-      color: #02407D;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      font-weight: 600;
-      font-size: 15px;
+      padding: 5px 8px;
+      border-radius: 50px;
       cursor: pointer;
       transition: background-color 0.3s;
     }
 
-    nav .account button:hover {
-      background-color: #7CA9FF;
-      color: #FAFAFA;
+    nav .account img.account-icon {
+      width: 35px;
+      height: 35px;
+    }
+    /* Account button on the right */
+    nav .account a {
+      color: #02407D;
+      padding: 8px 8px;
+      font-weight: 600;
+      font-size: 20px;
     }
 
+    nav .account:hover {
+      background-color: #7CA9FF;
+      border:  1px solid #0707B8;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    nav .account {
+      transition: all 0.3s ease;
+    }
+
+    /* change text color */
+    nav .account:hover a {
+      color: #fff;
+    }
+
+    /* change icon */
+    nav .account:hover img.account-icon {
+      content: url("../../images/account_icon_hover.png");
+    }
 
     nav ul {
       list-style: none;
@@ -154,10 +165,10 @@
     </div>
 
       <!-- Account button on the right -->
-  <div class="account">
-    <button>Account</button>
-    <img src="../../images/account-icon.png" alt="Account Icon" class="account-icon">
-  </div>
+      <div class="account">
+        <a class="account-btn">Account</a>
+        <img src="../../images/account_icon.png" class="account-icon">
+      </div>
   </nav>
 
   <!-- Sections -->
