@@ -254,6 +254,123 @@
       color: inherit; /* matches parent color */
     }
 
+    /* In-Kind Section Styling */
+    #inkind {
+      min-height: 50vh; /* O kahit anong height na gusto mo */
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* Itutulak lahat sa kaliwa */
+      justify-content: center;
+      padding: 50px 5%; /* Para hindi dikit sa gilid ng screen */
+      text-align: left; /* Para sa mga multi-line text */
+    }
+
+    #inkind a {
+      display: inline-block;
+      margin-top: -65px;
+      margin-left: 20%;
+      background-color: #FFFFFF;
+      color: #000000; /* Kulay ng text */
+      border: 1px solid #02407D; /* Kailangan ng 'solid' para lumabas ang border */
+      border-radius: 50px;
+      padding: 15px 30px;
+      font-weight: 600;
+      font-size: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: para may konting lalim */
+      cursor: pointer;
+    }
+
+    /* Hover effect para maging interactive */
+    #inkind a:hover {
+      background-color: #02407D;
+      color: #FFFFFF;
+      transform: translateY(-3px); /* Tatalon ng konti pataas */
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    #inkind h1 {
+      font-size: 40px; /* Pantay sa size ng Donate Online */
+      font-weight: 900;
+      color: #000000;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    #inkind p {
+      font-size: 20px;
+      color: #333;
+      margin-top: 20px; 
+    }
+
+    #inkind .inkind_img {
+      display: flex;
+      align-items: center;
+      gap: 40px; /* Space sa pagitan ng mapa at text */
+      margin-top: 30px;
+      margin-left: 30px;
+    }
+
+     .inkind_img .map_img {
+      margin-top: -100px;
+    }
+  
+
+    #inkind .inkind_text {
+      align-items: flex-start; 
+      background-color: #02407D;
+      padding: 50px 80px;
+      border-radius: 30px;
+    }
+
+    #inkind .inkind_text h1 {
+      color: #fff;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    #inkind .inkind_text ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #inkind .inkind_text ul li {
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: left;
+      gap: 15px; /* Space sa pagitan ng paw icon at text */
+    }
+
+    #inkind .inkind_text ul li img {
+      width: 30px;
+      height: 30px;
+    }
+
+     /* Responsive for Mobile */
+     @media (max-width: 900px) {
+      #inkind {
+        align-items: center; /* Center align sa mobile */
+        text-align: center;
+      }
+      #inkind .inkind_img {
+        flex-direction: column; /* Stack vertically sa mobile */
+        gap: 20px;
+        margin-left: 0;
+      }
+      #inkind .inkind_text {
+        padding: 30px 20px; /* Mas maliit na padding sa mobile */
+      }
+    }
+
+     /* Footer Section */
+     #footer {
+      min-height: 50vh;
+      background-color: #FFFFFF;
+    }
+
    </style>
 </head>
 <body>
@@ -303,8 +420,27 @@
     </div>
   </section>
   
-  <section id="companion">
-   
+  <section id="inkind">
+   <h1>DONATE IN KIND</h1>
+   <p>Donations can be dropped off at <strong>Camarines Sur Polytechnic Colleges , Nabua, Philippines, 4431</strong></p>
+
+   <div class="inkind_img">
+    <img src="../../images/cspc_map.png" class="map_img">
+    <div class="inkind_text">
+      <h1>sPAWl Us Please</h1>
+      <ul>
+        <li><img src="../../images/white paw.png">Dog food (kibble and canned)</li>
+        <li><img src="../../images/white paw.png">Cat food (kibble and canned)</li>
+        <li><img src="../../images/white paw.png">Crates, carriers, or cages</li>
+        <li><img src="../../images/white paw.png">Dog and cat treats</li>
+        <li><img src="../../images/white paw.png">Scratching posts for cats</li>
+        <li><img src="../../images/white paw.png">Brushes and toys for cats</li>
+        <li><img src="../../images/white paw.png">Vaccines, medicine, and vitamins</li>
+        <li><img src="../../images/white paw.png">Cleaning supplies (bleach,disinfectant, gloves, trash bags)</li>
+      </ul>
+    </div>
+   </div>
+   <a>Make a Donation</a>
   </section>
 
   <section id="footer">
