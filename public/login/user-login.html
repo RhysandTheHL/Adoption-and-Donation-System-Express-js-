@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAWSsion Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="branding-side">
+            <img src="../images/logo.png" alt="PAWSsion Logo" class="main-logo-img">
+        </div>
+
+        <div class="form-side">
+            <div class="header-pill">SIGN IN</div>
+            
+            <p class="description">
+                Sign in to view available pets, manage your adoption requests, and track your donations. Together, we can make a difference in the lives of rescued animals.
+            </p>
+            
+            <hr class="divider">
+
+            <div class="login-card">
+                <form method="post" action="/login">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-paw"></i>
+                            <input type="text" name="username" placeholder="Enter your Username">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Enter your Password">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+
+        <div class="footer-links">
+            <span class="forget-acc"><i class="fas fa-paw"></i> Not registered yet?</span>
+            <a href="#" class="register-link">Create an Account as User</a>
+            <div class="or-text">OR</div>
+            <a href="#" class="register-link">Register your Organization</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2026 PAWSsion System</p>
+        <div class="policy-links">
+            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        </div>
+    </footer>
+    </div>
+    
+</body>
+</html>
