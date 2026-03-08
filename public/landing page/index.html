@@ -366,14 +366,23 @@
       font-family: 'Inter', sans-serif;
 
       display: flex;
-      justify-content: center;   /* center horizontally */
-      align-items: center;   
-      align-items: flex-start; /* align items to top instead of center */
-      gap: 120px;    
-      padding: 5%;
+      flex-direction: column;   /* Gawing vertical ang arrangement ng stats at dogs */
+      align-items: center;      /* I-center lahat horizontally */
+      gap: 50px;                /* Space sa pagitan ng stats at dogs */
+      padding: 30px 5%;         /* Dagdagan ang padding sa taas at baba */
       min-height: 100vh;
-      overflow: hidden;          /* allow full image to be visible */
-      position: relative;   
+      height: auto;             /* Hayaan ang content ang mag-adjust ng height */
+      position: relative; 
+      overflow: visible;        /* Siguraduhing hindi putol ang shadow o image */
+    }
+
+    /* Gawa tayo ng wrapper para sa 4 na stats sa HTML */
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;          /* Para mag-stack sa mobile */
+      gap: 60px;
+      width: 100%;
     }
 
     /* Companion circle */
@@ -411,7 +420,7 @@
       position: absolute;
       background-color: #02407D;
       padding: 10px 15px;
-      margin-top: 25%;
+      margin-top: 20%;
       margin-left: -82%;
     }
 
@@ -420,8 +429,157 @@
       font-size: 30px;
     }
 
-    #about { background: #e1793d; }
-    #how { background: #8e44ad; }
+   /* Style para sa dog_img container */
+   .dog_img {
+      display: grid;
+      /* 4 columns sa desktop, automatic na mag-aadjust sa mobile */
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 20px;
+      width: 100%;
+      max-width: 1100px;
+      margin-top: 13%;
+      /* TANGGALIN ang position: absolute; */
+    }
+
+    .dog_img img {
+      width: 100%;
+      aspect-ratio: 1 / 1;     /* Gawing perfect square para pantay-pantay */
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Media Query para sa Mobile (2x4 layout naman kapag maliit ang screen) */
+    @media (max-width: 900px) {
+      .dog_img {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stats-container {
+        gap: 30px;
+      }
+    }
+   
+    .dog_img img:hover {
+      transform: scale(1.05); /* Zoom effect pag hinover */
+    }
+
+   /* Footer Section Styling */
+   #footer {
+      background: #FFFFFF; 
+      padding: 60px 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      min-height: auto; /* Para hindi kainin ang buong height ng screen */
+      
+    }
+
+      /* Ito ang magpapatabi-tabi sa kanila (3x1) */
+    .footer-row {
+      display: flex;
+      flex-direction: row; /* Side-by-side */
+      justify-content: center;
+      align-items: stretch; /* Pantay ang height kahit magkaiba ang haba ng text */
+      gap: 25px; /* Space sa pagitan ng boxes */
+      width: 100%;
+      max-width: 1200px; /* Limit para hindi masyadong malapad sa ultra-wide screens */
+    }
+
+    /* Glass Style Footer Box */
+    .footer_box {
+      background: rgba(255, 255, 255, 0.9); 
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8); 
+      padding: 30px;
+      border-radius: 20px;
+      
+      /* IMPORTANTE: Ito ang gumagawa ng 3 columns */
+      flex: 1; 
+      
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer_box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .footer_box img {
+      width: 50px; /* Ni-resize ang icon para hindi masyadong malaki sa row */
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    /* Responsive: Kapag mobile na, gagawin nating 1 column ulit (Optional but recommended) */
+    @media (max-width: 900px) {
+      .footer-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .footer_box {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+
+    /* Pag-style sa text sa loob ng box */
+    .footer_box p {
+      color: #333;
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    .footer h1 {
+      font-size: 25px;
+      color: #000;
+    }
+
+    .main_footer {
+      width: 100%;
+      position: relative; /* Basehan ng mga absolute elements sa loob */
+      line-height: 0;
+      margin-top: 50px;
+    }
+
+    .main_footer img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Ang H1 na nasa TAAS na part ng image */
+    .main_footer h1 {
+      position: absolute;
+      top: 30%;          /* I-adjust ito (e.g., 10% or 20%) depende sa "uka" ng image mo */
+      left: 50%;
+      transform: translateX(-50%);
+      
+      width: 100%;
+      text-align: center;
+      color: #FFFFFF;    /* Puti para sa blue background */
+      font-size: 40px;   /* Lakihan ang size para sa H1 */
+      font-weight: 800;
+      z-index: 10;       /* Para sigurado na nasa ibabaw ng image */
+    }
+
+    /* Ang copyright text na nasa BABA pa rin */
+    .main_footer .footer_text {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #FFFFFF;
+      font-size: 14px;
+      width: 100%;
+      text-align: center;
+    }
+  
 
     /* Responsive */
     @media only screen and (max-width: 520px) {
@@ -523,6 +681,7 @@
   </section>
 
   <section id="companion">
+    <div class="stats-container">
     <div class="companion-item">
       <div class="ellipse1">
         <img src="../../images/white paw.png" class="white_paw">
@@ -554,45 +713,55 @@
       <p class="companion-number">4.5</p>
       <p style="font-size: 20px;">Average Ratings</p>
     </div>
+    </div>
 
     <div class="header">
     <h1>COMPANIONS</h1>
     </div>
+
+    <div class="dog_img">
+      <img src="../images/dog1.png">
+      <img src="../images/dog2.png">
+      <img src="../images/dog3.png">
+      <img src="../images/dog4.png">
+      <img src="../images/dog5.png">
+      <img src="../images/dog6.png">
+      <img src="../images/dog6.png">
+      <img src="../images/dog6.png">
+    </div>
   </section>
 
-  <section id="about">
-    <p>Welcome to About Us Screen</p>
-  </section>
+  <section id="footer">
+    <h1>Why Choose PAWSsion?</h1>
 
-  <section id="how">
-    <p>Welcome to How it Works Screen</p>
+    <div class="footer-row">
+      <div class="footer_box">
+        <img src="../../images/pawprints.png">
+        <p><strong>Pet Matchmaking</strong><br>
+        Our system matches you with your perfect pet based on your preferences</p>
+      </div>
+
+      <div class="footer_box">
+        <img style="width: 30px; height: 30px;" src="../../images/impact.png">
+        <p><strong>Track Your Impact</strong><br>
+        Watch how your donations make a difference for pets in need.</p>
+      </div>
+
+      <div class="footer_box">
+        <img src="../../images/community.png">
+        <p><strong>Community Support</strong><br>
+        Connect with CSPC's animal welfare community and help pets find loving homes</p>
+      </div>
+    </div>
   </section>
+  <div class="main_footer">
+    <img src="../../images/footer_rect.png" alt="Footer Background">
+    
+    <h1>Ready to Make a Difference?</h1>
+    
+    <div class="footer_text">
+       © 2024 PAWSsion. All rights reserved.
+    </div>
+  </div>
 </body>
 </html>
-
-<script>
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav ul li a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 80;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
-
-      if(current === "companion"){
-        current = "home";
-      }
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-});
-</script>
