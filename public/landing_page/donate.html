@@ -120,6 +120,43 @@
       text-underline-offset: 4px;
     }
 
+    /* Responsive for Mobile Devices (Navigation and Layout) */
+    @media only screen and (max-width: 520px) {
+        
+        /* 1. Navigation Fixes (Gaya ng sa index.html) */
+        nav {
+          height: auto;
+          padding: 15px 10px;
+          flex-direction: column; /* Pinagpapatong ang logo, menu, at account */
+          gap: 15px;
+          position: relative; 
+        }
+        
+        nav .menu-container {
+          margin-left: 0; /* Tinatanggal ang negative margin sa desktop */
+          width: 100%;
+        }
+
+        nav ul {
+          justify-content: center;
+          gap: 10px;
+        }
+
+        nav li {
+          margin: 0 5px;
+        }
+
+        nav li a {
+          font-size: 13px;
+        }
+
+        nav .account {
+          width: 100%;
+          justify-content: center;
+        }
+
+    }
+
     /* Sections */
     section {
       min-height: 100vh;  
@@ -568,60 +605,60 @@
     }
 
     .footer-columns {
-  display: flex;
-  gap: 90px;
-  transform: translateY(100%); /* Itutulak nito ang columns pababa ng 40px */
-}
+      display: flex;
+      gap: 90px;
+      transform: translateY(100%); /* Itutulak nito ang columns pababa ng 40px */
+    }
 
-.footer-col {
-  text-align: left; /* Para pantay sa kaliwa ang mga links */
-}
+    .footer-col {
+      text-align: left; /* Para pantay sa kaliwa ang mga links */
+    }
 
-/* Style para sa Header (Quick Links / Legal) */
-.footer-col h3 {
-  color: #000;
-  font-weight: 800;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
+    /* Style para sa Header (Quick Links / Legal) */
+    .footer-col h3 {
+      color: #000;
+      font-weight: 800;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
 
-/* Style para sa listahan ng links */
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    /* Style para sa listahan ng links */
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-.footer-col ul li {
-  margin-bottom: 12px;
-  margin-top: 40px;
-}
+    .footer-col ul li {
+      margin-bottom: 12px;
+      margin-top: 40px;
+    }
 
-.footer-col ul li a {
-  color: #333;
-  font-weight: 500;
-  font-size: 18px;
-  transition: color 0.3s;
-}
+    .footer-col ul li a {
+      color: #333;
+      font-weight: 500;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
 
-.footer-col ul li a:hover {
-  color: #02407D;
-  text-decoration: underline;
-}
+    .footer-col ul li a:hover {
+      color: #02407D;
+      text-decoration: underline;
+    }
 
-/* Responsive Fix para sa Mobile */
-@media (max-width: 768px) {
-  .footer-top-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
-  .footer-columns {
-    gap: 40px;
-    justify-content: center;
-    width: 100%;
-  }
-}
+    /* Responsive Fix para sa Mobile */
+    @media (max-width: 768px) {
+      .footer-top-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+      .footer-columns {
+        gap: 40px;
+        justify-content: center;
+        width: 100%;
+      }
+    }
 
 
     /* Social icons sa ilalim ng H1 */
@@ -715,36 +752,37 @@
       width: 100%;
     }
 
-/* Itong dalawa ang mag-eensure na "centered" ang logo */
-.copyright-text, .spacer {
-  flex: 1; 
-}
+    /* Itong dalawa ang mag-eensure na "centered" ang logo */
+    .copyright-text, .spacer {
+      flex: 1; 
+    }
 
-.copyright-text p {
-  color: #000000;
-  font-size: 20px;
-  margin: 0 !important;
-  text-align: left; /* Text sa kaliwa */
-}
+    .copyright-text p {
+      color: #000000;
+      font-size: 20px;
+      margin: 0 !important;
+      text-align: left; /* Text sa kaliwa */
+    }
 
-.spacer {
-  /* Empty space sa kanan para pantay sa copyright-text box */
-}
+    .spacer {
+      /* Empty space sa kanan para pantay sa copyright-text box */
+    }
 
-/* Mobile Fix: Pagpatungin sila kapag masyadong maliit na ang screen */
-@media (max-width: 768px) {
-  .bottom-bar {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-  .copyright-text p {
-    text-align: center;
-  }
-  .spacer {
-    display: none; /* Alisin ang spacer sa mobile */
-  }
-}
+    /* Mobile Fix: Pagpatungin sila kapag masyadong maliit na ang screen */
+    @media (max-width: 768px) {
+      .bottom-bar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+      .copyright-text p {
+        text-align: center;
+      }
+      .spacer {
+        display: none; /* Alisin ang spacer sa mobile */
+      }
+    }
+
    </style>
 </head>
 <body>
