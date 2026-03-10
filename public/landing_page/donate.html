@@ -606,14 +606,6 @@
       background-color: #0707B8;
     }
 
-    @media (max-width: 768px) {
-      #footer img.ccs, #footer img.cspc, #footer img.honeygold, #footer img.pbc{
-        width: 60px; /* Mas maliit sa mobile */
-        opacity: 0.5;
-        /* Pwede mong baguhin ang positions dito para hindi takpan ang text */
-      }
-    }
-
     .footer-top-row {
       display: flex;
       justify-content: space-between;
@@ -687,20 +679,95 @@
       text-decoration: underline;
     }
 
-    /* Responsive Fix para sa Mobile */
-    @media (max-width: 768px) {
-      .footer-top-row {
+      /* Responsive for Footer Section */
+@media (max-width: 900px) {
+    #footer {
+        padding: 50px 5%;
+        min-height: auto; /* Hayaan ang content ang mag-dikta ng height */
+        text-align: center;
+        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 30px;
-      }
-      .footer-columns {
-        gap: 40px;
-        justify-content: center;
-        width: 100%;
-      }
     }
 
+    /* 1. scattered logos - Gawing mas maliit at i-adjust ang position */
+    #footer img.ccs, #footer img.cspc, #footer img.honeygold, #footer img.pbc {
+        position: relative; /* Imbes na absolute, gawin nating flow ng page */
+        width: 80px;
+        height: auto;
+        display: inline-block;
+        margin: 10px;
+        top: auto; left: auto; right: auto; bottom: auto; /* Reset positions */
+    }
+
+    /* 2. Top Row (H1 and Columns) */
+    .footer-top-row {
+      flex-direction: column; /* Stack ang text sa itaas ng links */
+        align-items: center;
+        gap: 20px;
+        padding: 0;
+        margin-bottom: 30px;
+        margin-top: 20px;
+    }
+
+    #footer h1 {
+        font-size: 35px;
+        text-align: center;
+      
+    }
+
+    /* 3. Footer Columns (Links) */
+    .footer-columns {
+        transform: translateY(0); /* Alisin ang desktop translate */
+        flex-direction: row; /* Panatilihing side-by-side ang Quick Links at Legal */
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+    }
+
+    .footer-col h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .footer-col ul li {
+        margin-top: 10px; /* Bawasan ang malaking gap sa desktop */
+        margin-bottom: 5px;
+    }
+
+    /* 4. Info/Social Icons */
+    #footer .info {
+        justify-content: center;
+        padding: 20px 0;
+        margin-left: 0; 
+    }
+
+    /* 5. Contact Info (Email & Phone) */
+    #footer p {
+        padding-left: 0;
+        text-align: center;
+        align-self: center;
+        font-size: 16px;
+    }
+
+    #footer a.gmail, #footer .phone {
+        align-self: center; /* I-center ang email at phone */
+        padding: 10px 0;
+        justify-content: center;
+    }
+
+    #footer a.gmail p, #footer .phone p {
+        font-size: 16px;
+    }
+}
+
+
+    @media (max-width: 480px) {
+    .footer-columns {
+        flex-direction: column; /* I-stack na rin ang links pag sobrang liit ng screen */
+        gap: 20px;
+    }
+}
 
     /* Social icons sa ilalim ng H1 */
     #footer .info {
@@ -844,7 +911,7 @@
 
       <!-- Account button on the right -->
       <div class="account">
-        <a class="account-btn">Account</a>
+        <a href="/login" class="account-btn">Account</a>
         <img src="../../images/account_icon.png" class="account-icon">
       </div>
   </nav>
