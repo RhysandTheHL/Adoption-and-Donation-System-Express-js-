@@ -515,10 +515,15 @@
         height: auto;
     }
 
+    #box_container {
+      margin-bottom: 10%;
+    }
+
     #mission {
       background-color: #02407D;
       align-items: center;
       justify-content: center;
+      height: 100vh;
     }
 
     #mission h1,
@@ -549,6 +554,151 @@
       font-weight: 100;
       opacity: 0.9;
     }
+
+    #mission_contain #box_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr; /* Tatlong magkakapantay na column */
+      gap: 10px;
+      margin-left:40px;
+    }
+
+    #mission_contain #box_container .mission1,
+    #mission_contain #box_container  .mission2,
+    #mission_contain #box_container .mission3 {
+      background-color: #fafafa;
+      border-radius: 20px;
+      box-sizing: border-box;
+      width:  380px;
+      height: 450px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+      gap: 50px;
+      margin-top: -50%;
+  
+    }
+
+    #mission_contain #box_container .mission1 img,
+    #mission_contain #box_container  .mission2 img,
+    #mission_contain #box_container .mission3 img  {
+      margin-top: 20px;
+      width: 50vh;
+      height:40vh;
+      border: 1px solid #beb9b9;
+      border-radius: 20px;
+    }
+
+    #mission_contain #box_container .mission1 .mission_logo,
+    #mission_contain #box_container .mission2 .mission_logo,
+    #mission_contain #box_container .mission3 .mission_logo {
+        display: flex;          /* Ginagawa silang magkatabi */
+        align-items: center;    /* Center vertical alignment */
+        gap: 10px;              /* Space sa pagitan ng logo at text image */
+        margin-top: 5px;       /* Kaunting distansya mula sa picture sa itaas */
+        margin-left: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Linisin ang image styles sa loob nito */
+    #mission_contain #box_container .mission1 .mission_logo img,
+    #mission_contain #box_container .mission2 .mission_logo img,
+    #mission_contain #box_container .mission3 .mission_logo img {
+        width: 40px;            /* Size ng maliit na logo */
+        height: auto;
+        border-radius: 0;
+        border: none;
+        margin: 0;              /* Tinanggal ang margin-left para hindi tumabingi */
+    }
+
+    #mission_contain #box_container .mission1 .mission_desc,
+    #mission_contain #box_container .mission2 .mission_desc,
+    #mission_contain #box_container .mission3 .mission_desc {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; /* Para pantay sa kaliwa ang text */
+      padding: 10px; /* Pantay na padding sa loob ng box */
+      padding-right: 20px;
+    }
+
+    #mission_contain #box_container .mission1 .mission_desc p,
+    #mission_contain #box_container .mission2 .mission_desc p,
+    #mission_contain #box_container .mission3 .mission_desc p {
+      color: #000000;
+      font-size: 12px;
+      text-align: justify;
+    }
+
+    #mission_contain #box_container .mission1 a,
+    #mission_contain #box_container .mission2 a,
+    #mission_contain #box_container .mission3 a {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 15px;
+      background-color: #02407D;
+      border-radius: 20px;
+      padding: 10px 40px;
+    }
+
+    #mission_contain #box_container .mission1 a:hover,
+    #mission_contain #box_container .mission2 a:hover,
+    #mission_contain #box_container .mission3 a:hover {
+      background-color: #ffffff;
+      border: 1px solid #02407D;
+      color: #02407D;
+    }
+
+    #values {
+      margin-bottom: 10%;
+    }
+
+    #values h3 {
+      color: #000000;
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 80px;
+    }
+
+    #values .val_cont1,
+    #values .val_cont2{
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: flex-start; /* Align items to the top */
+      gap: 10px; /* Space between the two boxes */
+    }
+
+    #values .val_cont1 .val1,
+    #values .val_cont1 .val2,
+    #values .val_cont2 .val1,
+    #values .val_cont2 .val2  {
+      display: flex;            /* Siguraduhing naka-flex ang container */
+      flex-direction: column;   /* Gamitin ito kung gusto mong vertical ang stack ng items */
+      justify-content: flex-start; /* Itutulak ang content sa start (left) */
+      align-items: flex-start;     /* Siguraduhin na ang mga items mismo ay dikit sa kaliwa */
+      text-align: left;
+      margin-left: 5%;
+      gap: 40px;
+    }
+
+   #values .val_cont1 .val1 h1,
+   #values .val_cont1 .val2 h1,
+   #values .val_cont2 .val1 h1,
+   #values .val_cont2 .val2 h1{
+      color: #02407D;
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    #values .val_cont1 .val1 p,
+    #values .val_cont1 .val2 p,
+    #values .val_cont2 .val1 p,
+    #values .val_cont2 .val2 p  {
+      color: #000000;
+      font-size: 20px;
+      text-align: justify;
+      padding-left: 5%;
+      padding-right: 10%;
+      padding-bottom: 10%;
+    }
+
+
 
     #footer {
       min-height: 100vh; /* Tinaasan natin para may space talaga sa baba */
@@ -1091,13 +1241,73 @@
     </div>
   </section>
 
-  <section id="mission">
-    <h1>OUR MISSION</h1>
-    <h3>Make adoption better, for every pet and every person.</h3>
-    <p>We’re transforming the way communities adopt and support rescued animals by building a technology-driven platform that connects pets, adopters, and donors in one trusted ecosystem.</p>
+  <section id="mission_contain">
+    <div id="mission">
+      <h1>OUR MISSION</h1>
+      <h3>Make adoption better, for every pet and every person.</h3>
+      <p>We’re transforming the way communities adopt and support rescued animals by building a technology-driven platform that connects pets, adopters, and donors in one trusted ecosystem.</p>
+      <h1>Discover how we make a difference below 👇</h1>
+  </div>
+  <div id="box_container">
+    <div class="mission1">
+      <img src="../images/matchmaking.JPG">
+      <div class="mission_logo">
+        <img src="../images/footer_logo.png">
+        <img style="width: 100px; height: auto;" src="../images/PAWSsion.png">
+        <div class="mission_desc">
+          <p>Provides adoption insights and recommends suitable pets to adopters based on their preferences.<br><br></p>
+        </div>
+      </div>
+      <a href="">Matchmaking</a>
+    </div>
+    <div class="mission2">
+      <img src="../images/adoption.JPG">
+      <div class="mission_logo">
+        <img src="../images/footer_logo.png">
+        <img style="width: 100px; height: auto;" src="../images/PAWSsion.png">
+        <div class="mission_desc">
+          <p>An online pet listing system where users can browse available cats and dogs, view profiles, and submit adoption requests.</p>
+        </div>
+      </div>
+      <a href="">PAWSsion Adoption</a>
+    </div>
+    <div class="mission3">
+      <img src="../images/donation.JPG">
+      <div class="mission_logo">
+        <img src="../images/footer_logo.png">
+        <img style="width: 100px; height: auto;" src="../images/PAWSsion.png">
+        <div class="mission_desc">
+          <p>A transparent donation tracking platform that allows supporters to contribute cash or materials and monitor how their help is used.</p>
+        </div>
+      </div>
+      <a href="">PAWSsion Donations</a>
+    </div>
+  </div>
   </section>
 
-  <section></section>
+  <section id="values">
+    <h3>OUR VALUES</h3>
+    <div class="val_cont1">
+      <div class="val1">
+        <h1><span style="color: #000000;">Be Their </span>Voice.</h1>
+        <p>Animals cannot speak for themselves, so we choose to stand up for their safety, dignity, and right to a loving home. Every action we take is guided by empathy and care for their well-being.</p>
+      </div>
+      <div class="val2">
+        <h1><span style="color: #000000;">Transparency builds </span>Trust.</h1>
+        <p>Honest records, clear donation tracking, and open communication help us build confidence with adopters and donors. Trust is the foundation of every successful adoption story.</p>
+      </div>
+    </div>
+    <div class="val_cont2">
+      <div class="val1">
+        <h1><span style="color: #000000;">Compassion in  </span>Action.</h1>
+        <p>Love for animals is more than words — it is shown through rescue efforts, responsible adoption, and continuous support from the community. We believe small acts of kindness can change a pet’s entire life.</p>
+      </div>
+      <div class="val2">
+        <h1><span style="color: #000000;">Community </span>First.</h1>
+        <p>Animal welfare is a shared responsibility. By working together with students, staff, and volunteers, we create a stronger and more compassionate environment for every rescued pet.</p>
+      </div>
+    </div>
+  </section>
 
   <section id="footer">
     <img src="../images/CCS_logo.png" class="ccs">
