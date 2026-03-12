@@ -8,6 +8,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
   <style>
+    /* Smooth Scroll & Reset - Matching Dashboard */
+    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     :root {
       --primary-blue: #02407D;
       --light-blue: #f1f5f9;
@@ -15,26 +19,31 @@
       --warning-gold: #FFB800;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     body {
-      background: #F8FAFC;
+      background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+                  url('../images/PAWSsion 2027.png') no-repeat center center fixed; 
+      background-size: cover;
       font-family: 'Inter', sans-serif;
       color: #333;
+      min-height: 100vh;
       overflow-x: hidden;
     }
 
+    /* Logic for Content Shifting - Matching Dashboard width logic */
     #donationSection {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      width: calc(100% - 320px); 
       margin-left: 320px;
-      padding: 110px 5% 60px;
-      transition: all 0.4s ease;
-      min-height: 100vh;
+      padding: 120px 5% 60px;
     }
 
-    body.sidebar-closed #donationSection { margin-left: 0; }
+    body.sidebar-closed #donationSection { 
+      margin-left: 0; 
+      width: 100%; 
+    }
 
     /* TOP HEADER */
-    .donation-header { text-align: center; margin-bottom: 40px; }
+    .donation-header { text-align: center; margin-bottom: 40px; animation: fadeIn 0.8s ease-out; }
     .donation-header h1 { font-size: 32px; color: var(--primary-blue); font-weight: 800; margin-bottom: 10px; }
     .donation-header p { color: var(--text-gray); }
 
@@ -46,6 +55,7 @@
       margin: 0 auto 40px;
       border-radius: 50px;
       padding: 5px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     .tab-btn {
@@ -59,12 +69,7 @@
       background: transparent;
       color: white;
     }
-    /* Example active menu styling */
-    #sidebar button.active-item {
-    background-color: var(--primary-blue);
-    color: white;
-    font-weight: 700;
-    }
+
     .tab-btn.active { background: white; color: var(--primary-blue); }
 
     /* MAIN CONTENT GRID */
@@ -72,30 +77,31 @@
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       gap: 40px;
-      background: white;
+      background: rgba(255, 255, 255, 0.95); /* Slight transparency to show bg */
       padding: 40px;
       border-radius: 24px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      animation: fadeIn 0.8s ease-out;
     }
 
-    .section-title { font-size: 24px; font-weight: 800; margin-bottom: 15px; color: #000; }
+    .section-title { font-size: 24px; font-weight: 800; margin-bottom: 15px; color: #1e293b; }
     .sub-text { font-size: 14px; color: var(--text-gray); margin-bottom: 25px; line-height: 1.5; }
 
     /* FORM GROUPS */
     .form-group { margin-bottom: 25px; }
-    .label-title { font-weight: 700; display: block; margin-bottom: 10px; font-size: 15px; }
+    .label-title { font-weight: 700; display: block; margin-bottom: 10px; font-size: 15px; color: #1e293b; }
 
     /* AMOUNT CHIPS */
     .amount-chips { display: flex; gap: 10px; margin-bottom: 15px; }
     .chip {
       padding: 8px 20px; border: 1px solid #cbd5e1; border-radius: 20px;
-      cursor: pointer; font-weight: 600; transition: 0.3s;
+      cursor: pointer; font-weight: 600; transition: 0.3s; background: white;
     }
     .chip:hover, .chip.active { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
 
     .custom-input {
       width: 100%; padding: 12px 20px; border: 1px solid #e2e8f0;
-      border-radius: 10px; outline: none; background: #fdfdfd;
+      border-radius: 10px; outline: none; background: #fff;
     }
 
     /* IN-KIND LIST */
@@ -116,7 +122,7 @@
     .qr-container { text-align: center; }
     .location-container { display: none; }
     
-    .campus-img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
+    .campus-img { width: 100%; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
     .contact-info { text-align: left; }
     .contact-info p { font-size: 14px; color: #444; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
     .contact-info i { color: var(--primary-blue); width: 18px; }
@@ -127,15 +133,17 @@
       margin-top: 20px; width: 100%; transition: all 0.3s ease;
     }
 
-    .submit-donation:hover { background: #0161b9; transform: translateY(-2px); }
+    .submit-donation:hover { background: #0161b9; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(2, 64, 125, 0.3); }
 
-    /* View Toggling */
+    /* View Toggling Classes */
     .inkind-view { display: none; }
 
-    @media (max-width: 900px) {
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 1100px) {
       .donation-grid { grid-template-columns: 1fr; }
       .right-col-container { border-left: none; padding-left: 0; padding-top: 30px; border-top: 1px solid #eee; }
-      #donationSection { margin-left: 0; }
+      #donationSection { margin-left: 0; width: 100%; }
     }
   </style>
 </head>
@@ -194,33 +202,33 @@
         <h2 class="section-title">In-Kind Donation</h2>
         <p class="sub-text">Donate pet food, supplies, or other materials to help our animals:</p>
         
-        <label class="label-title">Item Description</label>
+        <label class="label-title">Items Accepted</label>
         <ul class="inkind-list">
-          <li><i class="fa-solid fa-bone"></i> <strong>Pet Foods:</strong> Dry and wet foods for cats & dog</li>
-          <li><i class="fa-solid fa-cookie-bite"></i> <strong>Treats:</strong> Biscuits and snacks</li>
-          <li><i class="fa-solid fa-paw"></i> <strong>Pet Supplies:</strong> toys, collar</li>
-          <li><i class="fa-solid fa-soap"></i> <strong>Cleaning Supplies:</strong> Disinfectant and hygiene</li>
+          <li><i class="fa-solid fa-bone"></i> <strong>Pet Foods:</strong> Dry and wet foods for cats & dogs</li>
+          <li><i class="fa-solid fa-cookie-bite"></i> <strong>Treats:</strong> Biscuits and healthy snacks</li>
+          <li><i class="fa-solid fa-paw"></i> <strong>Pet Supplies:</strong> Toys, collars, and leashes</li>
+          <li><i class="fa-solid fa-soap"></i> <strong>Cleaning Supplies:</strong> Disinfectant and hygiene tools</li>
         </ul>
 
         <div class="tip-box">
-          <i class="fa-solid fa-shield-cat"></i>
-          <p><strong>Tip:</strong> Please ensure donated items are new or gently used and in good condition. Expired or damaged items cannot be accepted.</p>
+          <i class="fa-solid fa-circle-info"></i>
+          <p><strong>Note:</strong> Please ensure donated items are new or gently used. Expired food or heavily damaged items cannot be accepted.</p>
         </div>
 
         <div class="form-group">
-          <label class="label-title">Drop-Off Location</label>
-          <input type="text" class="custom-input" placeholder="Item description...">
+          <label class="label-title">Item Description</label>
+          <input type="text" class="custom-input" placeholder="What items are you donating?">
         </div>
       </div>
 
-      <h2 class="section-title" style="font-size: 20px; color: var(--primary-blue);">Donor Information</h2>
-      <div class="donor-info-row">
+      <h2 class="section-title" style="font-size: 20px; color: var(--primary-blue); margin-top: 30px;">Donor Information</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px;">
         <div class="form-group">
-          <label class="label-title">Full Name<span class="required">*</span></label>
+          <label class="label-title">Full Name<span style="color:#ef4444;">*</span></label>
           <input type="text" class="custom-input">
         </div>
         <div class="form-group">
-          <label class="label-title" id="referenceLabel">Reference Number<span class="required">*</span></label>
+          <label class="label-title" id="referenceLabel">Reference Number<span style="color:#ef4444;">*</span></label>
           <input type="text" class="custom-input" id="referenceInput">
         </div>
       </div>
@@ -239,7 +247,7 @@
         <div style="background:#007DFE;color:white;padding:10px 20px;border-radius:10px;font-weight:700;margin-bottom:15px;display:inline-block;">
             <i class="fa-solid fa-wallet"></i> GCash QR
         </div>
-        <div style="border:2px solid #007DFE; width:220px; margin:0 auto 20px; padding:15px; border-radius:15px;">
+        <div style="border:2px solid #007DFE; width:220px; margin:0 auto 20px; padding:15px; border-radius:15px; background: white;">
             <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=GCASH-PAWSSION" alt="QR" style="width:100%;">
         </div>
         <p style="font-size:13px;color:#64748b;margin-bottom:10px;">Scan using GCash app to donate.</p>
@@ -248,23 +256,22 @@
 
       <div class="location-container" id="locationView">
         <img src="../images/cspc_map.png" onerror="this.src='https://via.placeholder.com/400x250?text=CSPC+Campus'" class="campus-img" alt="CSPC Campus">
-        <h3 style="font-weight:800; margin-bottom:15px;">Camarines Sur Polytechnic Colleges</h3>
+        <h3 style="font-weight:800; margin-bottom:15px; color: #1e293b;">Camarines Sur Polytechnic Colleges</h3>
         <div class="contact-info">
           <p><i class="fa-solid fa-location-dot"></i> 4434, National Rd, Nabua, Camarines Sur</p>
-          <p><i class="fa-solid fa-clock"></i> Open Monday to Saturday, 09:00 A.M to 03:00 P.M</p>
+          <p><i class="fa-solid fa-clock"></i> Open Mon-Sat, 9:00 AM - 3:00 PM</p>
           <p><i class="fa-brands fa-facebook"></i> Facebook.com/PAWSsion</p>
           <p><i class="fa-solid fa-phone"></i> 09999999999</p>
           <p><i class="fa-solid fa-envelope"></i> pawssion@gmail.com</p>
         </div>
-
-        </div>
+      </div>
       </div>
     </div>
   </div>
 </main>
 
 <script>
-// TAB TOGGLE LOGIC
+// TAB TOGGLE LOGIC - Using Optional Chaining to prevent yellow warnings
 const cashTab = document.getElementById('cashTab');
 const inkindTab = document.getElementById('inkindTab');
 const cashView = document.querySelector('.cash-view');
@@ -274,49 +281,89 @@ const locationView = document.getElementById('locationView');
 const referenceLabel = document.getElementById('referenceLabel');
 const referenceInput = document.getElementById('referenceInput');
 
-inkindTab.addEventListener('click', () => {
-    // Buttons
+inkindTab?.addEventListener('click', () => {
     inkindTab.classList.add('active');
-    cashTab.classList.remove('active');
-    // Left Content
-    inkindView.style.display = 'block';
-    cashView.style.display = 'none';
-    // Right Content
-    locationView.style.display = 'block';
-    qrView.style.display = 'none';
-    // Change Labels
-    referenceLabel.innerHTML = 'Email Address<span style="color:#ef4444;">*</span>';
-    referenceInput.placeholder = 'example@gmail.com';
-});
-
-cashTab.addEventListener('click', () => {
-    // Buttons
-    cashTab.classList.add('active');
-    inkindTab.classList.remove('active');
-    // Left Content
-    cashView.style.display = 'block';
-    inkindView.style.display = 'none';
-    // Right Content
-    qrView.style.display = 'block';
-    locationView.style.display = 'none';
-    // Reset Labels
-    referenceLabel.innerHTML = 'Reference Number<span style="color:#ef4444;">*</span>';
-    referenceInput.placeholder = '';
-});
-
-// LOAD SIDEBAR
-fetch('sidebar.html').then(res => res.text()).then(data => {
-    document.getElementById('sidebar-placeholder').innerHTML = data;
-    const donationBtn = document.getElementById('donationBtn');
-    if(donationBtn) donationBtn.classList.add('active-item');
+    cashTab?.classList.remove('active');
     
-    document.getElementById('menuToggle').addEventListener('click', () => {
-        document.getElementById('sidebar').classList.toggle('closed');
-        document.body.classList.toggle('sidebar-closed'); 
-    });
+    if(inkindView) inkindView.style.display = 'block';
+    if(cashView) cashView.style.display = 'none';
+    if(locationView) locationView.style.display = 'block';
+    if(qrView) qrView.style.display = 'none';
+    
+    if(referenceLabel) referenceLabel.innerHTML = 'Email Address<span style="color:#ef4444;">*</span>';
+    if(referenceInput) referenceInput.placeholder = 'example@gmail.com';
 });
 
-// Chip Logic
+cashTab?.addEventListener('click', () => {
+    cashTab.classList.add('active');
+    inkindTab?.classList.remove('active');
+    
+    if(cashView) cashView.style.display = 'block';
+    if(inkindView) inkindView.style.display = 'none';
+    if(qrView) qrView.style.display = 'block';
+    if(locationView) locationView.style.display = 'none';
+    
+    if(referenceLabel) referenceLabel.innerHTML = 'Reference Number<span style="color:#ef4444;">*</span>';
+    if(referenceInput) referenceInput.placeholder = '';
+});
+
+// LOAD SIDEBAR & APPLY REDIRECT LOGIC
+fetch('sidebar.html')
+.then(res => res.text())
+.then(data => {
+    const placeholder = document.getElementById('sidebar-placeholder');
+    if(placeholder) placeholder.innerHTML = data;
+
+    const path = window.location.pathname;
+    const page = path.split("/").pop();
+
+    // 1. DASHBOARD BUTTON LOGIC
+    const dashBtn = document.getElementById('dashboardBtn');
+    if (dashBtn) {
+        if (page === 'dashboard.html' || page === '') {
+            dashBtn.classList.add('active-item');
+            dashBtn.addEventListener('click', () => { window.location.href = 'home.html'; });
+        } else {
+            dashBtn.addEventListener('click', () => { window.location.href = 'dashboard.html'; });
+        }
+    }
+
+    // 2. ADOPTION BUTTON LOGIC
+    const adoptionBtn = document.getElementById('adoptionBtn');
+    if (adoptionBtn) {
+        if (page === 'adoption_hub.html') {
+            adoptionBtn.classList.add('active-item');
+            adoptionBtn.addEventListener('click', () => { window.location.href = 'home.html'; });
+        } else {
+            adoptionBtn.addEventListener('click', () => { window.location.href = 'adoption_hub.html'; });
+        }
+    }
+
+    // 3. DONATION BUTTON LOGIC
+    const donationBtn = document.getElementById('donationBtn');
+    if (donationBtn) {
+        if (page === 'donations.html') {
+            donationBtn.classList.add('active-item');
+            donationBtn.addEventListener('click', () => { window.location.href = 'home.html'; });
+        } else {
+            donationBtn.addEventListener('click', () => { window.location.href = 'donations.html'; });
+        }
+    }
+
+    // Sidebar Toggle Logic
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebar = document.getElementById('sidebar');
+    
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('closed');
+            document.body.classList.toggle('sidebar-closed'); 
+        });
+    }
+})
+.catch(err => console.error('Error loading sidebar:', err));
+
+// Chip Interaction
 document.querySelectorAll('.chip').forEach(chip => {
     chip.addEventListener('click', function() {
         document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));

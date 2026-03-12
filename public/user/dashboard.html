@@ -123,16 +123,47 @@
     .then(data => {
         document.getElementById('sidebar-placeholder').innerHTML = data;
 
-        // 1. Identify current page to set active button
+        // 1. Identify current page
         const path = window.location.pathname;
         const page = path.split("/").pop();
 
-        if (page === 'dashboard.html' || page === '') {
-            document.getElementById('dashboardBtn')?.classList.add('active-item');
-        } else if (page === 'donations.html') {
-            document.getElementById('donationBtn')?.classList.add('active-item');
-        } else if (page === 'adoption_hub.html') {
-            document.getElementById('adoptionBtn')?.classList.add('active-item');
+        // --- DASHBOARD BUTTON LOGIC ---
+        const dashBtn = document.getElementById('dashboardBtn');
+        if (dashBtn) {
+            if (page === 'dashboard.html' || page === '') {
+                dashBtn.classList.add('active-item');
+                // Already active: click to go home
+                dashBtn.addEventListener('click', () => { window.location.href = 'home.html'; });
+            } else {
+                // Not active: click to go to dashboard
+                dashBtn.addEventListener('click', () => { window.location.href = 'dashboard.html'; });
+            }
+        }
+
+        // --- DONATION BUTTON LOGIC ---
+        const donationBtn = document.getElementById('donationBtn');
+        if (donationBtn) {
+            if (page === 'donations.html') {
+                donationBtn.classList.add('active-item');
+                // Already active: click to go home
+                donationBtn.addEventListener('click', () => { window.location.href = 'home.html'; });
+            } else {
+                // Not active: click to go to donations
+                donationBtn.addEventListener('click', () => { window.location.href = 'donations.html'; });
+            }
+        }
+
+        // --- ADOPTION BUTTON LOGIC ---
+        const adoptionBtn = document.getElementById('adoptionBtn');
+        if (adoptionBtn) {
+            if (page === 'adoption_hub.html') {
+                adoptionBtn.classList.add('active-item');
+                // Already active: click to go home
+                adoptionBtn.addEventListener('click', () => { window.location.href = 'home.html'; });
+            } else {
+                // Not active: click to go to adoption hub
+                adoptionBtn.addEventListener('click', () => { window.location.href = 'adoption_hub.html'; });
+            }
         }
 
         // 2. Sidebar Toggle Logic
@@ -147,6 +178,6 @@
         }
     })
     .catch(err => console.error('Error loading sidebar:', err));
-  </script>
+</script>
 </body>
 </html>
